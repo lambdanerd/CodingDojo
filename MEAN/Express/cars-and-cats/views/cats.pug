@@ -1,0 +1,72 @@
+extends layout
+
+block content
+  div.catContainer
+    img.cat#cat1(src='/images/cats/alain-pham-248578-unsplash.jpg', alt='cat statues')
+    img.cat#cat2(src='/images/cats/cat-mapper-max-ogden-204436-unsplash.jpg', alt='a cat in a shopping cart')
+    img.cat#cat3(src='/images/cats/paul-hanaoka-273388-unsplash.jpg', alt='a cat getting its chin scratched')
+    img.cat#cat4(src='/images/cats/timothy-meinberg-248173-unsplash.jpg', alt='a cat walking on concrete at the edge of a dock')
+
+  script.
+    function get(url) {
+      return new Promise((resolve, reject) => {
+        let req = new XMLHttpRequest();
+        req.open('GET', url);
+
+        req.onload = () => {
+          if (req.status == 200) {
+            resolve(JSON.parse(req.response));
+          } else {
+            reject(Error(req.statusText));
+          }
+        };
+
+        // Handle network errors
+        req.onerror = () => reject(Error('Network Error'));
+
+        // Make the request
+        req.send();
+      });
+    }
+
+    async function thisOne(catId) {
+      return await get(`/cats/${catId}`);
+    }
+
+    var catNodes = document.querySelectorAll('.cat');
+    catNodes.forEach(function(catNode) {
+      return catNode.addEventListener('click', handleCatClick);
+    });
+
+    async function handleCatClick(event) {
+      let catId = event.target.id.substring(event.target.id.length - 1);
+      let cat = await thisOne(catId);
+      return populateCatInfo(cat);
+    }
+
+    function populateCatInfo(cat) {
+      let nameH3 = document.querySelector('div.info h3#name');
+      let favoriteFoodP = document.querySelector('div.info p#favoriteFood');
+      let ageP = document.querySelector('div.info p#age');
+      let sleepingSpotsPL = document.querySelector('div.info p#sleepingSpotsLabel');
+      let sleepingSpotsP = document.querySelector('div.info p#sleepingSpots');
+      let name = cat.name;
+      let favoriteFood = cat.favoriteFood;
+      let age = cat.age;
+      let sleepingSpotsLabel = 'Sleeping spots:';
+      let sleepingSpots = cat.sleepingSpots;
+      nameH3.innerHTML= name;
+      favoriteFoodP.innerHTML= favoriteFood;
+      ageP.innerHTML= age;
+      sleepingSpotsPL.innerHTML= sleepingSpotsLabel;
+      sleepingSpotsP.innerHTML= sleepingSpots;
+    }
+
+
+  div.info
+    p (click on a cat for its info)
+    h3#name
+    p#favoriteFood
+    p#age
+    p#sleepingSpotsLabel
+    p#sleepingSpots

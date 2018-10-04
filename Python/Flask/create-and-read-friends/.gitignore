@@ -1,0 +1,4 @@
+.mypy_cache
+.vscode
+.DS_Store
+friendsdb_model.mwb*

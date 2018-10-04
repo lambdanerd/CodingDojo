@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  form(action="/createQuote" method="POST")
+    p
+      label(for="quotee") Name:
+      input(type="text" name="quotee" id="quotee")
+    p
+      label(for="quote") Quote:
+      textarea(rows="5" cols="30" name="quote" id="quote")
+    p: input(type="submit" value="Submit")

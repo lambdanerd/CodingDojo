@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div
+    table
+      thead
+        tr
+          th First Name
+          th Last Name
+          th Age (months)
+          th Actions
+      tbody
+        each mongoose in mongeese
+          tr
+            td= mongoose.firstName
+            td= mongoose.lastName
+            td= mongoose.age
+            td
+              a.action(href=`/mongeese/${mongoose._id}`) Show
+              a.action(href=`/mongeese/edit/${mongoose._id}`) | Edit
+              a.action(href=`/mongeese/destroy/${mongoose._id}`) | Delete
+    a.newMongoose(href='/mongeese/new') New Mongoose

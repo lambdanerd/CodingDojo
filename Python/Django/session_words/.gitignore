@@ -1,0 +1,4 @@
+.mypy_cache
+db.sqlite3
+.vscode
+.my.cnf

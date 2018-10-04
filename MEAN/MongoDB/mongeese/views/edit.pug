@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= `Editing ${mongoose.firstName} ${mongoose.lastName}`
+  form(action=`/mongeese/${mongoose._id}` method='POST')
+    input(type='text' name='firstName' value=`${mongoose.firstName}` placeholder='First Name')
+    input(type='text' name='lastName' value=`${mongoose.lastName}` placeholder='Last Name')
+    input(type='text' name='age' value=`${mongoose.age}` placeholder='Age')
+    a(href='/') back
+    button(type='submit') update

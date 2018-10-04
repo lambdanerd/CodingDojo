@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div.createUser
+    form(action="/users", method="POST")
+      p
+        label(for="name") Name:
+        input(type="text", id="name", name="name")
+      p
+        label(for="age") Age:
+        input(type="number", id="age", name="age")
+      p
+        input(type="submit" value="Submit")
+
+  div.displayUsers
+    each user in users
+      p= `Name: ${user.name}\nAge: ${user.age}`

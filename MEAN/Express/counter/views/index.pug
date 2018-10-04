@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 Counter
+  p This page has been visited #{count} times.
+  div.buttons
+    a.reset(href="/destroy") Reset
+    a.double(href="/double") Add 2

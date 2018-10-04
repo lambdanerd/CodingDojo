@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+  p#clicksView
+  div.buttons
+    div#decrement DECREMENT
+    div#increment INCREMENT
+    div#reset RESET
+
+  script(src="/socket.io/socket.io.js")
+  script.
+    const socket = io();
+    const clicksView = document.querySelector('#clicksView');
+    const buttons = document.querySelectorAll('div.buttons');
+
+    const handleClick = event => {
+      event.preventDefault();
+      socket.emit('action', event.target.id);
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', handleClick);
+    });
+
+    socket.on('updateClicksView', clicks => {
+      clicksView.innerHTML = clicks;
+    });

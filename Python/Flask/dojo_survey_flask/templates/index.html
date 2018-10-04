@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% url_for('static', 'css/style.css') %}">
+  <title>Survey</title>
+</head>
+<body>
+<main>
+  <form action="/submit" method="POST">
+    <label for="name">Your name:</label>
+    <input type="text" name="name" id="name" required>
+    <label for="location">Location:</label>
+    <select name="location" id="location" required>
+      <option value="tulsa">Tulsa, OK</option>
+      <option value="chicago">Chicago, TX</option>
+      <option value="dallas">Dallas, TX</option>
+    </select>
+    <label for="language">Language:</label>
+    <select name="language" id="language" required>
+      <option value="ruby">Ruby</option>
+      <option value="javascript">JavaScript</option>
+      <option value="python">Python</option>
+    </select>
+    <label for="comment">Comment (optional):</label>
+    <textarea id="comment" name="comment" rows="24" cols="80" maxlength="1000" wrap="hard"></textarea>
+    <input type="submit" value="Submit">
+  </form>
+</main>
+</body>
+</html>

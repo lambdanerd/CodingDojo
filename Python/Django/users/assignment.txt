@@ -1,0 +1,260 @@
+(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py makemigrations
+No changes detected
+(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py makemigrations
+No changes detected
+(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 27, 2018 - 16:52:38
+Django version 2.0.7, using settings 'users.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+^[[A^C⏎(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:  No migrations to apply.
+(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py runshell
+Unknown command: 'runshell'
+Type 'manage.py help' for usage.
+(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py shell
+Python 3.7.0 (default, Jun 29 2018, 20:13:13)
+[Clang 9.1.0 (clang-902.0.39.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from main.models import *
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/Users/lambdanerd/Workshop/CodingDojo/Python/Django/users/main/models.py", line 6, in <module>
+    class User(models.Model):
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/base.py", line 108, in __new__
+    "INSTALLED_APPS." % (module, name)
+RuntimeError: Model class main.models.User doesn't declare an explicit app_label and isn't in an application in INSTALLED_APPS.
+>>> from main.models import *
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/Users/lambdanerd/Workshop/CodingDojo/Python/Django/users/main/models.py", line 6, in <module>
+    class User(models.Model):
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/base.py", line 108, in __new__
+    "INSTALLED_APPS." % (module, name)
+RuntimeError: Model class main.models.User doesn't declare an explicit app_label and isn't in an application in INSTALLED_APPS.
+>>> exit()
+(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py makemigrations
+SystemCheckError: System check identified some issues:
+
+ERRORS:
+main.User.first_name: (fields.E121) 'max_length' must be a positive integer.
+main.User.last_name: (fields.E121) 'max_length' must be a positive integer.
+(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py makemigrations
+Migrations for 'main':
+  main/migrations/0001_initial.py
+    - Create model User
+(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, main, sessions
+Running migrations:
+  Applying main.0001_initial... OK
+(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py shell
+Python 3.7.0 (default, Jun 29 2018, 20:13:13)
+[Clang 9.1.0 (clang-902.0.39.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from main.models import *
+>>> User.
+User.DoesNotExist(                User.created_at                   User.get_deferred_fields(         User.mro(                         User.serializable_value(
+User.MultipleObjectsReturned(     User.date_error_message(          User.get_next_by_created_at(      User.objects                      User.unique_error_message(
+User.add_to_class(                User.delete(                      User.get_next_by_updated_at(      User.pk                           User.updated_at
+User.age                          User.email                        User.get_previous_by_created_at(  User.prepare_database_save(       User.validate_unique(
+User.check(                       User.first_name                   User.get_previous_by_updated_at(  User.refresh_from_db(
+User.clean(                       User.from_db(                     User.id                           User.save(
+User.clean_fields(                User.full_clean(                  User.last_name                    User.save_base(
+>>> User.objects.
+User.objects.aggregate(            User.objects.dates(                User.objects.extra(                User.objects.latest(               User.objects.union(
+User.objects.all(                  User.objects.datetimes(            User.objects.filter(               User.objects.model(                User.objects.update(
+User.objects.annotate(             User.objects.db                    User.objects.first(                User.objects.name                  User.objects.update_or_create(
+User.objects.auto_created          User.objects.db_manager(           User.objects.from_queryset(        User.objects.none(                 User.objects.use_in_migrations
+User.objects.bulk_create(          User.objects.deconstruct(          User.objects.get(                  User.objects.only(                 User.objects.using(
+User.objects.check(                User.objects.defer(                User.objects.get_or_create(        User.objects.order_by(             User.objects.values(
+User.objects.complex_filter(       User.objects.difference(           User.objects.get_queryset(         User.objects.prefetch_related(     User.objects.values_list(
+User.objects.contribute_to_class(  User.objects.distinct(             User.objects.in_bulk(              User.objects.raw(
+User.objects.count(                User.objects.earliest(             User.objects.intersection(         User.objects.reverse(
+User.objects.create(               User.objects.exclude(              User.objects.iterator(             User.objects.select_for_update(
+User.objects.creation_counter      User.objects.exists(               User.objects.last(                 User.objects.select_related(
+>>> User.objects.create()
+Traceback (most recent call last):
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 303, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: main_user.age
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/query.py", line 417, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/base.py", line 842, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/base.py", line 880, in _do_insert
+    using=using, raw=raw)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/query.py", line 1125, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1285, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 303, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: main_user.age
+>>> User.objects.create(first_name='Jared', last_name='Manning', email='hello.lambda.nerd@gmail.com', age=25)
+<User: User object (1)>
+>>> User.objects.get
+User.objects.get(            User.objects.get_or_create(  User.objects.get_queryset(
+>>> User.objects.get_queryset()
+<QuerySet [<User: User object (1)>]>
+>>> User.objects.get()
+<User: User object (1)>
+>>> User.objects.get(pk=1)
+<User: User object (1)>
+>>> User.objects.get(pk=1).first_name()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+TypeError: 'str' object is not callable
+>>> User.objects.get(pk=1).first_name
+'Jared'
+>>> User.objects.get(pk=1).first_name.last_name
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'last_name'
+>>> User.objects.get(pk=1).first_name
+'Jared'
+>>> User.objects.all()
+<QuerySet [<User: User object (1)>]>
+>>> User.objects.order_by('-created_at')
+<QuerySet [<User: User object (1)>]>
+>>> User.objects.order_by('-created_at').first_name
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'first_name'
+>>> User.objects.order_by('-created_at').get().first_name
+'Jared'
+>>> User.objects.get_queryset()<QuerySet [<User: User object (1)>]>
+>>> User.objects.create(first_name='Jerry', last_name='Mango', email='hiya.lambda.nerd@gmail.com', age=24)
+<User: User object (2)>
+>>> User.objects.get_queryset()<QuerySet [<User: User object (1)>, <User: User object (2)>]>
+>>> User.objects.order_by('-created_at').get().first_nameTraceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/Users/lambdanerd/.local/share/virtualenvs/Django-QtCqOIWw/lib/python3.7/site-packages/django/db/models/query.py", line 407, in get
+    (self.model._meta.object_name, num)
+main.models.MultipleObjectsReturned: get() returned more than one User -- it returned 2!
+>>> User.objects.order_by('-created_at').all().first_name
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'first_name'
+>>> User.objects.order_by('-created_at').filter().first_name
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'first_name'
+>>> User.objects.order_by('-created_at')
+<QuerySet [<User: User object (2)>, <User: User object (1)>]>
+>>> from main.models import *>>> User.objects.get_queryset()
+<QuerySet [<User: User object (1)>, <User: User object (2)>]>
+>>> User.objects.order_by('-created_at')
+<QuerySet [<User: User object (2)>, <User: User object (1)>]>
+>>> User.objects.get(pk=2)
+<User: User object (2)>
+>>> User.objects.get(pk=2).str
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'str'
+>>> User.objects.get(pk=2).str()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'str'
+>>> User.objects.get(pk=2).__str__()
+'User object (2)'
+>>> from main.models import *
+>>> User.objects.get(pk=2).__str__()
+'User object (2)'
+>>> User.objects.order_by('-created_at')
+<QuerySet [<User: User object (2)>, <User: User object (1)>]>
+>>> from main.models import *
+>>> User.objects.order_by('-created_at')
+<QuerySet [<User: User object (2)>, <User: User object (1)>]>
+>>> User.objects.get(pk=2).str()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'str'
+>>> User.objects.get(pk=2).__str__()
+'User object (2)'
+>>> exit()
+(Django-QtCqOIWw) lambdanerd@lambdanerd ~/W/C/P/D/users> python manage.py shell
+Python 3.7.0 (default, Jun 29 2018, 20:13:13)
+[Clang 9.1.0 (clang-902.0.39.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from main.models import *
+>>> User.objects.first()
+<User: Jared Manning>
+>>> User.objects.last()
+<User: Jerry Mango>
+>>> User.objects.all()
+<QuerySet [<User: Jared Manning>, <User: Jerry Mango>]>
+>>> User.objects.filter(first_name='Jared')
+<QuerySet [<User: Jared Manning>]>
+>>> User.objects.exclude(first_name='Jared')
+<QuerySet [<User: Jerry Mango>]>
+>>> list = User.objects.all()
+>>> for i in list {
+  File "<console>", line 1
+    for i in list {
+                  ^
+SyntaxError: invalid syntax
+>>> for i in list:
+...     print(i.first_name)
+...
+Jared
+Jerry
+>>> list = User.objects.all()
+>>> list
+<QuerySet [<User: Jared Manning>, <User: Jerry Mango>]>
+>>> User.objects.creat
+User.objects.create(           User.objects.creation_counter
+>>> User.objects.create(first_name='Abso', last_name='Lutely', email='absolutely@earwolf.com', age=33)
+<User: Abso Lutely>
+>>> User.objects.filter(pk=3)<QuerySet [<User: Abso Lutely>]>
+>>> User.objects.get(pk=3).first_name = 'ABSO'
+>>> User.objects.get(pk=3)
+<User: Abso Lutely>
+>>> User.objects.get(pk=3).first_name
+'Abso'
+>>> User.objects.get(pk=3).save()
+>>> User.objects.get(pk=3).first_name
+'Abso'
+>>> abso = User.objects.get(pk=3)
+>>> abso.first_name = 'ABSO'
+>>> abso.save()
+>>> abso = User.objects.get(pk=3)
+>>> abso.first_name = 'ABSO'
+>>> abso.save()
+>>> abso
+<User: ABSO Lutely>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Session Words{% endblock %}
+{% block content %}
+<main>
+  <div class="container">
+    <form action="/add/" method="post" class="wordForm">
+      {% csrf_token %} {{ form }}
+      <input type="submit" value="add word">
+    </form>
+    <div class="wordList">
+      <a href="/clear/" class="clearSession">clear words</a>
+      {% for word in words %}
+      <div class="word">
+        <p style="color: {{ word.color }}; font-size: {% if word.is_big %}3rem{% else %}1rem{% endif %}">
+          {{ word.word }}
+        </p><span class="datetime">{{ word.datetime }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+{% endblock content %}

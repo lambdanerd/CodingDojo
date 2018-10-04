@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}new.html{% endblock %}
+{% block content %}
+<div class="container">
+  <form action="/users/create/" method="POST">
+    {% csrf_token %}
+    {% include 'main/form_snippet.html' %}
+  </form>
+</div>
+{% endblock content %}

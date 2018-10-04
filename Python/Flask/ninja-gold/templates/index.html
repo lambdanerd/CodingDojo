@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Ninja Gold</title>
+</head>
+
+<body>
+  <header>
+    <h3>Your gold: <span class="goldCount">{{ session['gold'] if 'gold' in session else 'Uh oh...' }}</span></h3>
+  </header>
+  <main>
+    <section class="forms">
+      {% macro building_form(building_type) -%}
+      <form action="/process_gold" method="POST">
+        <input type="hidden" name="building" id="{{ building_type }}" value="{{ building_type }}">
+        <p>{{ building_type }}: <input type="submit" value="Go!"></p>
+      </form>
+      {%- endmacro %}
+      {{ building_form('farm') }}
+      {{ building_form('cave') }}
+      {{ building_form('house') }}
+      {{ building_form('casino')}}
+    </section>
+    <section class="activities">
+      <h3>Activities:</h3>
+      <div class="activitiesBox">
+        {% for message in session['messages'] %}
+        <p class="message {{ message.color }}">
+          {{ message.content }}
+        </p>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

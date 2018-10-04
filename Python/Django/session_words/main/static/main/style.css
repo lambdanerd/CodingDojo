@@ -1,0 +1,72 @@
+div.container {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+form.wordForm {
+  flex: 0 1 auto;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 33rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+form.wordForm label {
+  flex: 0 1 auto;
+  text-align: center;
+}
+
+form.wordForm input[type="text"],
+ul {
+  flex: 0 1 auto;
+  width: 10rem;
+  margin-bottom: 1rem;
+  align-self: center;
+}
+
+form.wordForm ul {
+  list-style-type: none;
+}
+
+form.wordForm input[type="submit"] {
+  flex: 0 1 auto;
+  width: 5rem;
+  margin-top: 1rem;
+  align-self: center;
+}
+
+div.wordList {
+  flex: 0 1 auto;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+div.wordList a {
+  flex: 0 1 auto;
+  justify-self: flex-end;
+}
+
+div.word p {
+  display: inline-block;
+}
+
+span.datetime {
+  margin-left: 4rem;
+  vertical-align: baseline;
+}

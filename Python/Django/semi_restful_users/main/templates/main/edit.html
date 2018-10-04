@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}edit.html{% endblock %}
+{% block content %}
+<div class="container">
+  <form action="/users/update/{{ user.id }}/" method="POST">
+    {% csrf_token %}
+    {% include 'main/form_snippet.html' %}
+  </form>
+</div>
+{% endblock content %}

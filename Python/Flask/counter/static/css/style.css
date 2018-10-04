@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+h1 {
+  flex: 0 1 auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 4rem;
+  text-align: center;
+}
+
+p {
+  flex: 0 1 auto;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+}
+
+div.buttons {
+  flex: 0 1 auto;
+  margin-top: 1.5rem;
+}
+
+div.buttons a {
+  text-decoration: none;
+  margin: 0 1.5rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  color: white;
+}
+
+div.buttons a.reset {
+  background-color: red;
+}
+
+div.buttons a.add2 {
+  background-color: green;
+}

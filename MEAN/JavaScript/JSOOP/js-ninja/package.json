@@ -1,0 +1,17 @@
+{
+  "name": "js-ninja",
+  "version": "0.1.0",
+  "main": "ninja.js",
+  "author": "Jared Manning <hello.lambda.nerd@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^23.4.2",
+    "jest": "^23.5.0"
+  }
+}

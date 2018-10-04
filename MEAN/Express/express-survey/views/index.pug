@@ -1,0 +1,68 @@
+extends layout
+
+block content
+  section.messageContainer
+    p.message
+    p.number
+
+
+  section.surveyForm
+    form(action="#")
+      label(for='name') Your name:
+      input#name(type='text' name='name' required)
+      label(for='location') Location:
+      select#location(name='location' required)
+        option(value='tulsa') Tulsa, OK
+        option(value='chicago') Chicago, TX
+        option(value='dallas') Dallas, TX
+      label(for='language') Language:
+      select#language(name='language' required)
+        option(value='ruby') Ruby
+        option(value='javascript') JavaScript
+        option(value='python') Python
+      label(for='comment') Comment (optional):
+      textarea#comment(name='comment' rows='2' cols='30' maxlength='1000' wrap='hard')
+      input(type='submit' value='Submit')
+  script(src='/socket.io/socket.io.js')
+  script.
+    const socket = io();
+
+    const messageContainer = document.querySelector('section.messageContainer');
+    const numberP = document.querySelector('section.messageContainer p.number');
+    const updatedMessageP = document.querySelector('section.messageContainer p.message')
+    const formSubmitBtn = document.querySelector('section.surveyForm form');
+
+    messageContainer.hidden = true;
+
+    socket.on('randomNumber', function(data) {
+      let msg = `Your lucky number emitted by the server is ${data.number}.`;
+      revealMessageContainer();
+      numberP.innerHTML = msg;
+    });
+
+    socket.on('updatedMessage', function(data) {
+      let { name, location, language, comment } = data.msg;
+      let msg = `You emitted the following information to the server:
+        Name: ${name}, Location: ${location}, Language: ${language}, Comment: ${comment || 'N/A'}`;
+      revealMessageContainer();
+      updatedMessageP.innerHTML = msg;
+    });
+
+    function revealMessageContainer() {
+      messageContainer.hidden = false;
+    }
+
+    formSubmitBtn.addEventListener('submit', handleSubmit);
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      console.log(event.target.elements);
+      socket.emit('postingForm', {
+        msg: {
+          name: event.target.elements['name'].value,
+          location: event.target.elements['location'].value,
+          language: event.target.elements['language'].value,
+          comment: event.target.elements['comment'].value
+        }
+      });
+    }

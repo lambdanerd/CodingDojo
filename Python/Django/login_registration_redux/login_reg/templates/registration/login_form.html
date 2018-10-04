@@ -1,0 +1,15 @@
+{% if form.errors %}
+<p>Something went wrong.</p>
+{% endif %} 
+
+{% if next %}
+<p>You cannot access this page.</p>
+{% endif %}
+
+<form action="{% url 'login' %}" method="POST">
+  {% csrf_token %}
+  {{ form.username }}
+  {{ form.password }}
+  <input type="submit" value="login">
+  <input type="hidden" name="next" value="{{ next }}">
+</form>

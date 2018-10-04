@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}show.html{% endblock %}
+{% block content %}
+<div class="container">
+  <p>        
+    {{user.first_name}} {{user.last_name}} {{user.email}}
+    <a href="/users/{{ user.id }}/edit/">Edit</a>
+    <a href="/users/{{ user.id }}/destroy/">Delete</a>
+  </p>
+</div>
+{% endblock content %}

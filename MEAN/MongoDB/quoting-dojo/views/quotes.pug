@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  each item in quotes
+    div.quote
+      p= `"${item.quote}"`
+      p= `- ${item.quotee}, ${item.updatedAt}`

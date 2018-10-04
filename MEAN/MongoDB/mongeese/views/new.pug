@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  mixin list(id, ...messages)
+    ul(id=id)
+      each message in JSON.stringify(messages)
+        li= message
+    +list('flashMessages', messages)
+
+  form(action='/mongeese', method='POST')
+    p
+      label(for='firstName') First Name:
+      input(type='text', name='firstName', id='firstName', placeholder='Bob')
+    p
+      label(for='lastName') Last Name:
+      input(type='text', name='lastName', id='lastName', placeholder='Barker')
+    p
+      label(for=age) Age (months)
+      input(type='number', name='age', id='age', placeholder='1130')
+    p
+      input(type="submit", value="submit")

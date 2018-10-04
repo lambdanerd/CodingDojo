@@ -1,0 +1,13 @@
+{
+  "name": "car",
+  "version": "0.1.0",
+  "main": "car.js",
+  "author": "Jared Manning <hello.lambda.nerd@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.5.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

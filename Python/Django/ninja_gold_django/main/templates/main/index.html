@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Ninja Gold{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="goldDisplay">
+    <h3>Your gold: {{ request.session.gold }}</h3>
+  </div>
+  <div class="forms">
+    {% for form in forms %}
+    <form action="{% url 'process_gold' %}" method="post">
+      {% csrf_token %}
+      {{ form.location.label_tag }}
+      {{ form.location }}
+      <input type="submit" value="Go!">
+    </form>
+    {% endfor %}
+  </div>
+  <div class="messages">
+    <h3>Activities:</h3>
+    <div class="messageBox" cols="30" rows="10">
+      {% for message in request.session.messages reversed %}
+      <p style="color: {{ message.color }}">{{ message.content }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

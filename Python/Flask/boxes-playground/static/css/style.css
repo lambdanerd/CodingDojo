@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+div.container {
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  padding: 3rem;
+}
+
+header h1 {
+  color: grey;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+main {
+  display: flex;
+  margin: 0 0.2rem;
+  padding: 0.5rem;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+div.box {
+  flex: 0 1 auto;
+  margin: 0.2rem;
+  height: 10rem;
+  width: 10rem;
+  /* margin: 2rem; */
+  border: 0.2rem grey solid;
+  /* background-color: lightskyblue; */
+}

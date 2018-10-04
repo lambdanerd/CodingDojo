@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}Survey Form{% endblock %}
+{% block content %}
+  <form action="/process/" method="POST">
+    {% csrf_token %}
+    {% include 'main/survey.html' %}
+  </form>
+{% endblock content %}
